@@ -1,0 +1,12 @@
+<h1>User#new</h1>
+<p>Find me in app/views/user/new.html.erb</p>
+
+<% if flash[:notice] %>
+	<p><%= flash[:notice] %></p>
+<% end %>
+
+<%= form_for(:user, url: "/user") do |f| %>
+	<p>Nombre :</p><%= f.text_field :name %> <br>
+	<p>Celular :</p><%= f.text_field :phone %> <br> <br>
+	<%=	f.submit 'create user'%>
+<% end %>
