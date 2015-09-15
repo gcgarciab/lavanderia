@@ -1,18 +1,7 @@
 FactoryGirl.define do
 	factory :user do
 		name 'Camilo Garcia'
-		phone '3108823253'
-
-		factory :not_name do
-			name ''
-		end
-
-		factory :not_phone do
-			phone ''
-		end
-
-		factory :invalid_phone do
-			phone '123334532'
-		end
+		phone '310-882-3253'
+		email 'gcgarciab@unal.edu.co'
 	end
 end
