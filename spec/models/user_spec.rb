@@ -1,27 +1,37 @@
 require "rails_helper"
 
-RSpec.describe User, :type => :model do 
+RSpec.describe User, :type => :model do
+	let(:user) {FactoryGirl.build(:user)}
 
-	context 'validacion de usuarios' do
+	context 'Users validation !!!' do
 
-		it "usuario valido ?" do
-			user1 = FactoryGirl.build(:user)
-			expect(user1.save).to eq(true)
+		it "User is OK ?" do
+			expect(user.save).to eq(true)
 		end
 
-		it "nombre vacio ?" do
-			user1 = FactoryGirl.build(:not_name)
-			expect(user1.save).to eq(false) 
+		it "User without name ?" do
+			user.name = nil
+			expect(user.save).to eq(false) 
 		end
 
-		it "telefono vacio ?" do
-			user1 = FactoryGirl.build(:not_phone)
-			expect(user1.save).to eq(false) 
+		it "User without phone" do
+			user.phone = nil
+			expect(user.save).to eq(false) 
 		end
 		
-		it "telefono valido?" do
-			user1 = FactoryGirl.build(:invalid_phone)
-			expect(user1.save).to eq(false)  
+		it "Phone user valid ?" do
+			user.phone = '3108823253'
+			expect(user.save).to eq(false)  
+		end
+
+		it "User without email" do
+			user.email = nil
+			expect(user.save).to eq(false) 
+		end
+		
+		it "Email user valid ?" do
+			user.email = 'gcgarciab@gmail'
+			expect(user.save).to eq(false)  
 		end
 	end	
 end

@@ -7,6 +7,7 @@
 
 <%= form_for(:user, url: "/user") do |f| %>
 	<p>Nombre :</p><%= f.text_field :name %> <br>
-	<p>Celular :</p><%= f.text_field :phone %> <br> <br>
+	<p>Celular :</p><%= f.text_field :phone %> <br> 
+	<p>Email :</p><%= f.text_field :email %> <br> <br>
 	<%=	f.submit 'create user'%>
 <% end %>
